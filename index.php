@@ -41,6 +41,52 @@ elseif ($temp <= 50) {echo 'il fait chaud';}
 else echo 'il fait beaucoup trop chaud';
 
 
+//LES BOUCLES
+//Objectif : creer une liste à puces (10 puces)
+
+echo '<ul>';
+$i = 1;
+while ($i<=10){
+    echo "<li>Puce n°".$i."</li>";
+    $i++;
+}
+echo '</ul>';
+//tableau indexé
+
+$fruits =["kiwi","pamplemousse","citron","ananas","banane"];
+echo '<ul>';
+foreach($fruits as $fruits){
+    echo "<li>$fruits</li>";
+}
+echo '</ul>';
+
+//tableau associatif
+
+$personne = [
+        "nom"=>"verhaeghe",
+        "prenom"=>"thibault",
+        "age"=>36
+];
+
 ?>
+
+<table>
+    <thead>
+    <?php
+        foreach ($personne as $key=>$value) {
+            echo "<th>$key</th>";
+        }
+    ?>
+    </thead>
+    <tbody>
+    <tr>
+        <?php
+        foreach ($personne as $value) {
+            echo "<td>$value</td>";
+        }
+        ?>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
