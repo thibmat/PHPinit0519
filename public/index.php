@@ -1,7 +1,7 @@
 
 
 <?php
-include "header.php";
+require "inc/header.php";
 
 //Affichage de bonjour
 echo '<p>Bonjour</p>';
@@ -47,8 +47,8 @@ echo '</ul>';
 
 $fruits =["kiwi","pamplemousse","citron","ananas","banane"];
 echo '<ul>';
-foreach($fruits as $fruits){
-    echo "<li>$fruits</li>";
+foreach($fruits as $fruit){
+    echo "<li>$fruit</li>";
 }
 echo '</ul>';
 
@@ -63,13 +63,13 @@ $personne = [
 ?>
 
 <table>
-    <thead>
+    <thead><th>
     <?php
         foreach ($personne as $key=>$value) {
             echo "<th>$key</th>";
         }
     ?>
-    </thead>
+    </th> </thead>
     <tbody>
     <tr>
         <?php
@@ -80,8 +80,6 @@ $personne = [
     </tr>
     </tbody>
 </table>
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-
-</body>
-</html>
+<?php
+require "inc/footer.php";
+?>
