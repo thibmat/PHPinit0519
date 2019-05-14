@@ -81,5 +81,8 @@ $personne = [
     </tbody>
 </table>
 <?php
+
+$puces=["puce 1","puce 2","puce 3","puce 4"];
+echo "<ul><li>".implode("</li><li>",$puces)."</li></ul>";
 require "inc/footer.php";
 ?>
