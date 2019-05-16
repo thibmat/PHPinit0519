@@ -6,6 +6,7 @@ require "inc/header.php";
 require "function_jeu.php";
 require "verifjeu.php";
 var_dump($_SESSION["resultat"]);
+$essais = 26 - $_SESSION['n'];
 ?>
 <main class="container w-25">
 <h1>Jeu de la lettre</h1>
@@ -17,8 +18,9 @@ var_dump($_SESSION["resultat"]);
     <div class="form-group text-center">
         <button type="submit" class="btn btn-primary">Tester !</button>
         <section>
-            <p style="margin:auto;margin:50px;text-align:center;color:red;font-size:20px;background:black;border-radius:20px;">
-                <?php echo $message; ?>
+            <p style="margin:auto;margin:50px;text-align:center;color:khaki;font-size:20px;background:darkgrey;border-radius:20px;">
+                <?php echo "Il vous reste ".$essais." essais.<br>";
+                echo $message; ?>
             </p>
         </section>
     </div>
