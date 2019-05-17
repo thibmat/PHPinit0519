@@ -1,7 +1,7 @@
 <?php
 //INCLUSION EN TETE + NAVBAR
 require "inc/header.php";
-//INCLUSION DU TRAITEMENT DU FORMULAIRE
+//INCLUSION DU TRAITEMENT DU formulaire
 require "function_jeu.php";
 require "verifjeu.php";
 var_dump($_SESSION["resultat"]);

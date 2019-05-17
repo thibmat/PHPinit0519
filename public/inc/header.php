@@ -15,12 +15,12 @@ if (isset($_GET['exit'])){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PAGE PHP</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="/monsite/public/css/bootstrap.min.css">
 </head>
 <body style="background:lightgrey;">
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="#">
-        <img src="img/header-logo-truffaut-2018-1.png" width="241px" height="34px" alt="">
+    <a class="navbar-brand" href="/monsite/public/index.php">
+        <img src="/monsite/public/img/header-logo-truffaut-2018-1.png" width="241px" height="34px" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -29,20 +29,20 @@ if (isset($_GET['exit'])){
     <div class="collapse navbar-collapse" id="navbarsExample04">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/monsite/public/index.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="communes.php">Les Communes</a>
+                <a class="nav-link" href="/monsite/public/communes.php">Les Communes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="jeu.php">Le jeu des lettres</a>
+                <a class="nav-link" href="/monsite/public/jeu.php">Le jeu des lettres</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="tableau.php">Nos Produits</a>
+                <a class="nav-link" href="/monsite/public/tableau.php">Nos Produits</a>
             </li>
             <?php
             if (isset($_SESSION['user'])) {
-                echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"product.php\">Ajouter un produit</a></li>";
+                echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/monsite/public/formulaire/product.php\">Ajouter un produit</a></li>";
             }
             ?>
         </ul>
@@ -52,7 +52,8 @@ if (isset($_GET['exit'])){
                 echo $_SESSION['user'];
                 echo "<br><a href='?exit=yes'>Se déconnecter</a>";
             }else{
-                echo "<a href=\"../public/connexion.php\">se connecter</a>";
+                echo "<a href=\"../public/connexion.php\">Se connecter </a><br>";
+                echo "<a href=\"../public/connexion.php?action=inscription\">Créer un compte</a>";
             }
             ?>
         </p>

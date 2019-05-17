@@ -16,7 +16,6 @@ require "inc/connect.php";
     $villes = false;
     $region = false;
     }
-
 ?>
 <main class="container">
 <h1>Les villes francaises</h1>

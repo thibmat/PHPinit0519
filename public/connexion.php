@@ -5,7 +5,7 @@ require "inc/header.php";
 require "inc/connect.php";
 $message = '';
 $message2 = '';
-//INCLUSION TRAITEMENT FORMULAIRE
+//INCLUSION TRAITEMENT formulaire
 require "inc/verif_connect.php";
 ?>
 
@@ -15,13 +15,24 @@ require "inc/verif_connect.php";
     if (!isset($_SESSION['user'])) {
         ?>
         <form class="form-signin" method="post">
-            <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+            <?php if (isset($_GET['action']) && $_GET['action'] === 'inscription' ){
+            ?>
+                <h1 class="h3 mb-3 font-weight-normal">Créer un compte</h1>
+            <?php
+            } else {
+            ?>
+                <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
+            <?php
+            }
+            ?>
             <label for="inputEmail" class="sr-only">Adresse Email</label>
             <input type="email" id="inputEmail" name="mail" class="form-control" placeholder="Adresse E-Mail"
                    required="" autofocus="">
             <label for="inputPassword" class="sr-only">mot de passe</label>
             <input type="password" id="inputPassword" name="pw" class="form-control" placeholder="Mot de passe"
                    required="">
+            <?php if (isset($_GET['action']) && $_GET['action'] === 'inscription' ){?>
+            <input type="hidden" id="creation" name="creation" value="yes"><?php }?>
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me"> Se souvenir de moi
@@ -38,8 +49,9 @@ require "inc/verif_connect.php";
         echo "Hello ".$_SESSION['user'];
         echo "<br><a href='?exit=yes'>Se déconnecter</a>";
     }
-    ?>
 
+
+    ?>
 </main>
 
 
