@@ -3,7 +3,6 @@
 require "inc/header.php";
 //INCLUSION DU TRAITEMENT DU FORMULAIRE
 require "handle-product-new.php";
-var_dump($_SERVER);
 ?>
 <main class="container">
 <h1>Ajout d'un produit</h1>

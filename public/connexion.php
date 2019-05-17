@@ -1,5 +1,4 @@
 <?php
-session_start();
 //INCLUSION EN TETE + NAVBAR
 require "inc/header.php";
 //INCLUSION DU LOGIN MYSQL

@@ -1,8 +1,12 @@
 <?php
-if (isset($_GET['exit'])){
-    session_destroy();
+function URLCouranteSansParametres(){
+    $urlCourante=$_SERVER["REQUEST_URI"];
+    $urlGet = explode("?",$urlCourante);
+    return  $urlGet[0];
 }
 // TEST DU NOM
+$mail = false;
+$pw = false;
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
 //L'existence
     if (!array_key_exists('mail', $_POST)) {
@@ -37,24 +41,17 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 $message2 = "Le mot de passe saisi n'est pas valide";
             }else {
                 $pw = true;
-                $_POST['pw'] =  password_hash($_POST['pw'],PASSWORD_DEFAULT);
-                var_dump($_POST['pw']);
             }
         }
     }
     if ($mail == true && $pw == true){
         $reponse = $bdd->query('SELECT * FROM user WHERE user_name = \''.$_POST['mail'].'\'');
         $donnees = $reponse->fetch();
-        var_dump($donnees);
         $user = $donnees['user_name'];
         $password = $donnees['user_pw'];
-        var_dump($password);
-        if ($password === $_POST['pw']){
+
+        if (password_verify ($_POST['pw'] , $password )){
             $_SESSION['user'] = $donnees['user_name'];
         }
     }
-var_dump($_SESSION);
-
-
-
 }

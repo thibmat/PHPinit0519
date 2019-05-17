@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (isset($_GET['exit'])){
+    session_unset();
+    $urlCourante=$_SERVER["REQUEST_URI"];
+    $urlGet = explode("?",$urlCourante);
+    header('Location: '.$urlGet[0]);
+}
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -23,22 +32,29 @@
                 <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Fleurs</a>
+                <a class="nav-link" href="communes.php">Les Communes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Potager</a>
+                <a class="nav-link" href="jeu.php">Le jeu des lettres</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Maison</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="tableau.php">Nos Produits</a>
             </li>
+            <?php
+            if (isset($_SESSION['user'])) {
+                echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"product.php\">Ajouter un produit</a></li>";
+            }
+            ?>
         </ul>
-        <form class="form-inline my-2 my-md-0">
-            <input class="form-control" type="text" placeholder="Search">
-        </form>
+        <p class="my-2 my-md-0">
+            <?php
+            if (isset($_SESSION['user'])) {
+                echo $_SESSION['user'];
+                echo "<br><a href='?exit=yes'>Se déconnecter</a>";
+            }else{
+                echo "<a href=\"../public/connexion.php\">se connecter</a>";
+            }
+            ?>
+        </p>
     </div>
 </nav>

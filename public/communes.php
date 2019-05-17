@@ -3,16 +3,16 @@
 require "inc/header.php";
 require "inc/connect.php";
     if (isset($_GET['region'])){
-        $reponse2 = $bdd->query('SELECT * FROM commune_francaise WHERE code_region =\''.$_GET['region'].'\' ORDER BY code_departement, nom_commune');
+        $reponse2 = $bdd2->query('SELECT * FROM commune_francaise WHERE code_region =\''.$_GET['region'].'\' ORDER BY code_departement, nom_commune');
         $region = true;
         $villes = false;
     }elseif(isset($_GET['departement'])){
-        $reponse3 = $bdd->query('SELECT * FROm commune_francaise WHERE code_departement =\''.$_GET['departement'].'\' ORDER by nom_commune');
+        $reponse3 = $bdd2->query('SELECT * FROm commune_francaise WHERE code_departement =\''.$_GET['departement'].'\' ORDER by nom_commune');
         $villes = true;
         $region = false;
     }
     else{
-    $reponse = $bdd->query('SELECT DISTINCT code_region, nom_region FROM commune_francaise ORDER BY code_region');
+    $reponse = $bdd2->query('SELECT DISTINCT code_region, nom_region FROM commune_francaise ORDER BY code_region');
     $villes = false;
     $region = false;
     }

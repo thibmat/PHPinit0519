@@ -10,7 +10,6 @@ hello();
 
 function helloPeople ($name) {
     echo "<p>Bonjour $name</p>";
-
 }
 $name = "John";
 helloPeople($name);
@@ -31,7 +30,10 @@ addition(10,15);
 function minus($a, $b){
     return $a-$b;
 }
-$resultat = minus(10,5);
-echo "<br>".$resultat;
+
+
+
+$resultat = minus(1400000,165468);
+echo "fonction Minus : ".minus(1400000,165468);
 
 ?>
